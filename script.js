@@ -7,8 +7,8 @@ document.getElementById("save").addEventListener("click", function(){
     const text = document.getElementById("editor").value;
 
     emailjs.send(
-        "service_yimquql",
-        "template_k5wrj1k",
+        "service_godqvsl",
+        "template_b2cit9p",
         {
             message: text
         }
