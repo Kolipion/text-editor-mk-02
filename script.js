@@ -1,49 +1,35 @@
 // Textfeld auswählen
 const textarea = document.getElementById("editor");
 
-// Nach jeweils 40 Zeichen einen Zeilenumbruch einfügen
+// Nach maximal 90 Zeichen einen Zeilenumbruch einfügen,
+// ohne Wörter zu trennen.
 textarea.addEventListener("input", function(){
 
+    // Alle vorhandenen Zeilenumbrüche entfernen
     let text = this.value.replace(/\n/g, "");
 
     let result = "";
+    const maxLength = 90;
 
-    for(let i = 0; i < text.length; i++){
+    while(text.length > maxLength){
 
-        result += text[i];
+        // Das letzte Leerzeichen vor Zeichen 90 suchen
+        let breakPoint = text.lastIndexOf(" ", maxLength);
 
-        if((i + 1) % 40 === 0){
-            result += "\n";
+        // Falls kein Leerzeichen gefunden wurde,
+        // wird nach 90 Zeichen getrennt.
+        if(breakPoint === -1){
+            breakPoint = maxLength;
         }
 
+        result += text.substring(0, breakPoint) + "\n";
+
+        // Den restlichen Text weiter verarbeiten
+        text = text.substring(breakPoint).trimStart();
     }
 
+    result += text;
+
     this.value = result;
-
-});
-
-
-// EmailJS initialisieren
-emailjs.init({
-    publicKey: "t_HBf_gztN5fNCVX0"
-});
-
-
-// Save-Button
-document.getElementById("save").addEventListener("click", function(){
-
-    const text = document.getElementById("editor").value;
-
-    emailjs.send(
-        "service_yimquql",
-        "template_k5wrj1k",
-        {
-            message: text
-        }
-    ).then(() => {
-
-        alert("Gespeichert");
-
-    });
 
 });
