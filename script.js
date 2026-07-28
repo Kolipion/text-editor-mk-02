@@ -12,7 +12,7 @@ textarea.addEventListener("input", function(){
 
         result += text[i];
 
-        if((i + 1) % 90 === 0){
+        if((i + 1) % 40 === 0){
             result += "\n";
         }
 
