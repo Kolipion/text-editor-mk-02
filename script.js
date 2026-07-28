@@ -1,5 +1,5 @@
 emailjs.init({
-    publicKey: "t_HBf_gztN5fNCVX0"
+    publicKey: "8s5AdO0IZ99pi8O8d"
 });
 
 document.getElementById("save").addEventListener("click", function(){
