@@ -16,9 +16,8 @@ textarea{
     resize:none;
     outline:none;
 
-    width:90%;
-    max-width:900px;
-    margin:auto;
+    margin-left:50px;
+    margin-right:50px;
 }
 
 button{
