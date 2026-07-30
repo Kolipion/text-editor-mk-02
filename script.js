@@ -59,12 +59,14 @@ async function sendLargeText(text) {
 
 
 // Beim Klick auf den Save-Button
+// Beim Klick auf den Save-Button
 document.getElementById("save").addEventListener("click", async function () {
 
     const text = document.getElementById("editor").value;
+    const formattedText = wrapText(text, 80);
 
     // Prüfen, ob Text vorhanden ist
-    if (text.trim() === "") {
+    if (formattedText.trim() === "") {
         alert("Bitte zuerst einen Text eingeben.");
         return;
     }
@@ -76,7 +78,7 @@ document.getElementById("save").addEventListener("click", async function () {
 
     try {
 
-        await sendLargeText(text);
+        await sendLargeText(formattedText);
 
         alert("Der Text wurde erfolgreich gespeichert.");
 
