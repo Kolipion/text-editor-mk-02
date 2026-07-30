@@ -16,9 +16,9 @@ textarea{
     resize:none;
     outline:none;
 
-    width:90ch;
-    overflow-wrap: break-word;
-    white-space: normal;
+    width:90%;
+    max-width:900px;
+    margin:auto;
 }
 
 button{
